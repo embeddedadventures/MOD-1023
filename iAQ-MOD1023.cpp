@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2015, Embedded Adventures
+Copyright (c) 2017, Embedded Adventures
 All rights reserved.
 
 Contact us at source [at] embeddedadventures.com
@@ -74,6 +74,10 @@ char *iAQClass::getStatus() {
 		return "ERROR";
 	else
 		return "UNRECOGNIZED DATA";
+}
+
+uns8 iAQClass::getStatusByte() {
+	return data[2];
 }
 
 iAQClass iaq;

@@ -1,6 +1,6 @@
 /*
 
-Copyright (c) 2015, Embedded Adventures
+Copyright (c) 2017, Embedded Adventures
 All rights reserved.
 
 Contact us at source [at] embeddedadventures.com
@@ -44,9 +44,17 @@ THE POSSIBILITY OF SUCH DAMAGE.
 
 #define IAQ_ADDR	0x5A
 
-#define uns8	unsigned char
-#define uns16	unsigned int
-#define sn32	long int
+#ifndef uns8
+	#define uns8	uint8_t
+#endif
+
+#ifndef uns16
+	#define uns16	uint16_t
+#endif
+
+#ifndef sn32
+	#define sn32	int32_t
+#endif
 
 class iAQClass {
 	public:
@@ -69,6 +77,8 @@ class iAQClass {
 		ERROR - sensor possibly defective 
 		UNRECOGNIZED DATA - physical connection error*/
 		char* getStatus();
+		
+		uns8 getStatusByte();
 };
 
 extern iAQClass iaq;
